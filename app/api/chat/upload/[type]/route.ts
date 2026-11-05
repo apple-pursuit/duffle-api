@@ -156,8 +156,7 @@ export async function POST(
       onUploadCompleted: async ({ blob }) => {
         console.info("Duffle upload completed", {
           pathname: blob.pathname,
-          contentType: blob.contentType,
-          size: blob.size
+          contentType: blob.contentType
         });
       }
     });
