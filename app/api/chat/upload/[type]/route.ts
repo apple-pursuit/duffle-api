@@ -123,7 +123,7 @@ export async function POST(
         const normalized = pathname.replace(/^\\/+/, "");
         if (
           normalized.includes("..") ||
-          normalized.includes("\\\\") ||
+          normalized.includes("\\") ||
           !normalized.startsWith(category.folder + "/")
         ) {
           throw new Error("Invalid upload path.");
