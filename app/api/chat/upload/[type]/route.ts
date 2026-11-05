@@ -110,34 +110,20 @@ export async function POST(
     return jsonResponse({ success: false, error: "Expected a JSON upload request." }, 400);
   }
 
-  const isCompletion = (body as { type?: string }).type === "blob.upload-completed";
-  let grant: UploadGrant | null = null;
-
-  if (!isCompletion) {
-    const authorization = request.headers.get("authorization") ?? "";
-    const token = authorization.startsWith("Bearer ") ? authorization.slice(7).trim() : "";
-
-    if (!token) {
-      return jsonResponse({ success: false, error: "Upload authorization required." }, 401);
-    }
-
-    grant = verifyGrant(token, type);
-    if (!grant) {
-      return jsonResponse({ success: false, error: "Upload authorization is invalid or expired." }, 401);
-    }
-  }
-
   try {
     const result = await handleUpload({
       body,
       request,
-      onBeforeGenerateToken: async (pathname) => {
-        if (!grant) throw new Error("Upload authorization required.");
+      onBeforeGenerateToken: async (pathname, clientPayload) => {
+        const grant = verifyGrant(clientPayload ?? "", type);
+        if (!grant) {
+          throw new Error("Upload authorization is invalid or expired.");
+        }
 
-        const normalized = pathname.replace(/^\/+/, "");
+        const normalized = pathname.replace(/^\\/+/, "");
         if (
           normalized.includes("..") ||
-          normalized.includes("\\") ||
+          normalized.includes("\\\\") ||
           !normalized.startsWith(category.folder + "/")
         ) {
           throw new Error("Invalid upload path.");
