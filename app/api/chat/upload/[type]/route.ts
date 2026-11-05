@@ -120,7 +120,7 @@ export async function POST(
           throw new Error("Upload authorization is invalid or expired.");
         }
 
-        const normalized = pathname.replace(/^\\/+/, "");
+        const normalized = pathname.replace(/^\/+/, "");
         if (
           normalized.includes("..") ||
           normalized.includes("\\") ||
