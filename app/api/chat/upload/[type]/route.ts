@@ -25,6 +25,11 @@ const categories: Record<string, {
     folder: "music",
     contentTypes: ["audio/mpeg", "audio/mp4", "audio/aac", "audio/wav", "audio/flac", "audio/ogg", "audio/x-m4a"],
     maximumSizeInBytes: 500 * 1024 * 1024
+  },
+  Video_File: {
+    folder: "videos",
+    contentTypes: ["video/mp4", "video/webm", "video/ogg", "video/quicktime"],
+    maximumSizeInBytes: 1024 * 1024 * 1024
   }
 };
 
