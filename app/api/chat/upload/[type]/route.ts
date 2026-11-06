@@ -35,6 +35,16 @@ const categories: Record<string, {
     folder: "photos",
     contentTypes: ["image/jpeg", "image/png", "image/webp", "image/gif", "image/avif"],
     maximumSizeInBytes: 50 * 1024 * 1024
+  },
+  Movie_File: {
+    folder: "movies",
+    contentTypes: ["video/mp4", "video/webm", "video/ogg", "video/quicktime"],
+    maximumSizeInBytes: 2 * 1024 * 1024 * 1024
+  },
+  Movie_Poster: {
+    folder: "movie-posters",
+    contentTypes: ["image/jpeg", "image/png", "image/webp", "image/avif"],
+    maximumSizeInBytes: 20 * 1024 * 1024
   }
 };
 
