@@ -39,7 +39,7 @@ const categories: Record<string, {
   Movie_File: {
     folder: "movies",
     contentTypes: ["video/mp4", "video/webm", "video/ogg", "video/quicktime"],
-    maximumSizeInBytes: 2 * 1024 * 1024 * 1024
+    maximumSizeInBytes: 10 * 1024 * 1024 * 1024
   },
   Movie_Poster: {
     folder: "movie-posters",
