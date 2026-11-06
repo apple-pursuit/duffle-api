@@ -20,6 +20,11 @@ const categories: Record<string, {
   Backup_File: {
     folder: "backups",
     maximumSizeInBytes: 1024 * 1024 * 1024
+  },
+  Music_File: {
+    folder: "music",
+    contentTypes: ["audio/mpeg", "audio/mp4", "audio/aac", "audio/wav", "audio/flac", "audio/ogg", "audio/x-m4a"],
+    maximumSizeInBytes: 500 * 1024 * 1024
   }
 };
 
