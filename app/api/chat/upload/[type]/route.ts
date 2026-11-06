@@ -16,6 +16,10 @@ const categories: Record<string, {
   Chat_File: {
     folder: "chat-files",
     maximumSizeInBytes: 100 * 1024 * 1024
+  },
+  Backup_File: {
+    folder: "backups",
+    maximumSizeInBytes: 1024 * 1024 * 1024
   }
 };
 
