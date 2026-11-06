@@ -30,6 +30,11 @@ const categories: Record<string, {
     folder: "videos",
     contentTypes: ["video/mp4", "video/webm", "video/ogg", "video/quicktime"],
     maximumSizeInBytes: 1024 * 1024 * 1024
+  },
+  Photo_File: {
+    folder: "photos",
+    contentTypes: ["image/jpeg", "image/png", "image/webp", "image/gif", "image/avif"],
+    maximumSizeInBytes: 50 * 1024 * 1024
   }
 };
 
